@@ -1209,7 +1209,7 @@ function GetTaskList(a) {
 }
 
 function GetTaskCount() {
-	$.post("/ajax?action=GetTaskCount", "", function(a) {
+	$.post("../GetTaskCount", "", function(a) {
 		$(".task").text(a)
 	})
 }

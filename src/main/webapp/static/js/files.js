@@ -250,7 +250,7 @@ function GetFiles(Path) {
 	var data = 'path=' + Path;
 	var loadT = layer.load();
 	var totalSize = 0;
-	$.post('../getDir.json', data, function(rdata) {
+	$.post('../getDir', data, function(rdata) {
 		layer.close(loadT);
 		if(rdata.DIR == null) rdata.DIR = [];
 		for (var i = 0; i < rdata.DIR.length; i++) {
@@ -654,7 +654,7 @@ function GetFileName(fileNameFull) {
 //取磁盘
 function GetDisk() {
 	var LBody = '';
-	$.get('../getDiskInfo.json', function(rdata) {
+	$.get('../GetDiskInfo', function(rdata) {
 		for (var i = 0; i < rdata.length; i++) {
 			LBody += "<span onclick=\"GetFiles('" + rdata[i].path + "')\"><span class='glyphicon glyphicon-hdd'></span>&nbsp;" + (rdata[i].path=='/'?'根目录':rdata[i].path) + "(" + rdata[i].size[2] + ")</span>";
 		}
