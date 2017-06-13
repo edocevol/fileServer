@@ -10,7 +10,7 @@ import java.util.Date;
  * @category 用户表PO对象
  * @Date 2017-3-19
  */
-@Alias("user")
+@Alias("User")
 public class User {
 
     private int id;

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="io.github.sixtrees.mapper.log.LogMapper">
+    <!--添加一条日志记录-->
+    <insert id="addLog" parameterType="Log" useGeneratedKeys="true" keyProperty="id">
+        INSERT into fs_log
+        (user_id,user_name,log_type,log_detail,log_time,log_ip)
+        VALUES(#{userId},#{userName},#{logType},#{logDetail},#{logTime},#{logIp})
+    </insert>
+
+
+    <!--删除日志-->
+
+    <delete id="deleteLog" parameterType="java.lang.Integer" >
+        DELETE from fs_log
+        <where>
+            <if test="id!=null">
+                id = ${id}
+            </if>
+            <if test="id==null">
+                1=0
+            </if>
+        </where>
+    </delete>
+
+</mapper>
