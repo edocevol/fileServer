@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>EnergyRiver</display-name> 	
-     <!-- 读取spring配置文件 -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id="WebApp_ID" version="3.0">
+    <display-name>EnergyRiver</display-name>
+    <!-- 读取spring配置文件 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:config/spring/applicationContext-*.xml</param-value>
-    </context-param>  
-    
+        <param-value>classpath:config/spring/springmvc.xml</param-value>
+    </context-param>
+
     <!-- 日志记录 -->
     <context-param>
         <!-- 日志配置文件路径 -->
@@ -17,103 +20,75 @@
         <!-- 日志页面的刷新间隔 -->
         <param-name>log4jRefreshInterval</param-name>
         <param-value>6000</param-value>
-    </context-param>  
+    </context-param>
     <listener>
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
- 
+
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-  
-	<context-param>
-        <param-name>spring.profiles.active</param-name>
-        <param-value>dev</param-value> 
-    </context-param> 
-    <context-param> 
-        <param-name>spring.profiles.default</param-name> 
-        <param-value>dev</param-value> 
-    </context-param>
-    <context-param> 
-        <param-name>spring.liveBeansView.mbeanDomain</param-name> 
-        <param-value>dev</param-value> 
-    </context-param>          
-    <!-- 使用druid连接池时，配置监控 -->  
-	<!-- <filter>  
-	  <filter-name>druidWebStat</filter-name>  
-	  <filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>  
-	  <init-param>  
-	    <param-name>exclusions</param-name>  
-	    <param-value>/css/*,/style/*,/jslib/*,*.js,*.css,/druid*,/attached/*,/uploadFile/*,*.jsp</param-value>  
-	  </init-param>  
-	  <init-param>  
-	    <param-name>principalSessionName</param-name>  
-	    <param-value>sessionInfo</param-value>  
-	  </init-param>  
-	</filter>  
-	<filter-mapping>  
-	  <filter-name>druidWebStat</filter-name>  
-	  <url-pattern>/*</url-pattern>  
-	</filter-mapping> -->
-	<!-- post乱码过虑器 -->
-	<filter>
-		<filter-name>CharacterEncodingFilter</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-		<init-param>
-			<param-name>encoding</param-name>
-			<param-value>utf-8</param-value>
-		</init-param>
-	</filter>
-	<filter-mapping>
-		<filter-name>CharacterEncodingFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping> 
-	<!-- 配置druid数据源集成了监控页面 输入工程后加druid/index.html--> 
-	<servlet>  
-	  	<servlet-name>druidStatView</servlet-name>  
-	  	<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>  	  	
-	  	<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:config/spring/springmvc.xml</param-value>
-	  	</init-param>  
-	</servlet>  
-	<servlet-mapping>  
-	  	<servlet-name>druidStatView</servlet-name>  
-	  	<url-pattern>/druid/*</url-pattern>
-	</servlet-mapping> 
-	<!-- springmvc前端控制器 -->
-	<servlet>
-		<servlet-name>springmvc</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>		
-		<!-- contextConfigLocation配置springmvc加载的配置文件（配置处理器映射器、适配器等等） 如果不配置contextConfigLocation，默认加载的是/WEB-INF/servlet名称-serlvet.xml（springmvc-servlet.xml） -->
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:config/spring/springmvc.xml</param-value>
-		</init-param>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>springmvc</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
-	
-	<!-- 项目投入运行后再行添加 --> 
-	<!-- 错误跳转页面 -->
-    <!-- <error-page>
-    	<error-code>404</error-code>
-        <location>/WEB-INF/errorpage/404.jsp</location>
-    </error-page> -->
-    <!-- 没有访问权限，访问被禁止 -->
-    <!-- <error-page>    
-    	<error-code>405</error-code>
-        <location>/WEB-INF/errorpage/405.jsp</location>
-    </error-page> -->
-    <!-- 内部错误 -->
-    <!-- <error-page>  
-    	<error-code>500</error-code>
-        <location>/WEB-INF/errorpage/500.jsp</location>
-    </error-page> -->
+
+    <!--<context-param>-->
+        <!--<param-name>spring.profiles.active</param-name>-->
+        <!--<param-value>dev</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+        <!--<param-name>spring.profiles.default</param-name>-->
+        <!--<param-value>dev</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+        <!--<param-name>spring.liveBeansView.mbeanDomain</param-name>-->
+        <!--<param-value>dev</param-value>-->
+    <!--</context-param>-->
+
+
+
+    <!-- springmvc前端控制器 -->
+    <servlet>
+        <servlet-name>springmvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!-- contextConfigLocation配置springmvc加载的配置文件（配置处理器映射器、适配器等等） 如果不配置contextConfigLocation，默认加载的是/WEB-INF/servlet名称-serlvet.xml（springmvc-servlet.xml） -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:config/spring/springmvc.xml</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>springmvc</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!-- 配置druid数据源集成了监控页面 输入工程后加druid/index.html-->
+    <servlet>
+        <servlet-name>druidStatView</servlet-name>
+        <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:config/spring/springmvc.xml</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>druidStatView</servlet-name>
+        <url-pattern>/druid/*</url-pattern>
+    </servlet-mapping>
+
+
     <!-- 起始欢迎界面 -->
-	<welcome-file-list>		
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
+    <welcome-file-list>
+        <welcome-file>view/files.html</welcome-file>
+    </welcome-file-list>
 </web-app>
