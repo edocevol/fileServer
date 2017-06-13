@@ -9,6 +9,7 @@ import io.github.sixtrees.tool.token.AuthUtil;
 import io.github.sixtrees.tool.token.JavaWebToken;
 import io.github.sixtrees.tool.token.JsonDataType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,7 +18,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,6 +28,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/")
 public class SystemController {
+    @Qualifier("userManagerServiceImpl")
     @Autowired
     private UserManagerService userService;  //注意：此处的service要用注解注入，不能new
 
@@ -127,11 +128,11 @@ public class SystemController {
             Map<String, Object> loginInfo = new HashMap<>();
             loginInfo.put("userID", currentUser.getId());
             loginInfo.put("userName", currentUser.getUserName());
-            loginInfo.put("passWord", currentUser.getPassword());
+            //loginInfo.put("passWord", currentUser.getPassword());
             //获取token码            
-            //String tokenNo = JWT.sign(currentUser, 30L * 24L * 3600L * 1000L);            
+            //String tokenNo = JWT.sign(currentUser, 30L * 24L * 3600L * 1000L);
             String tokenNo = JavaWebToken.createJavaWebToken(loginInfo);
-            System.out.println("TOKEN码为" + tokenNo);
+            //System.out.println("TOKEN码为" + tokenNo);
             //将TOKEN存入 本地cookie
             addCookie(response, "tokenNo", tokenNo, 3600);
             //将token存入json数据中

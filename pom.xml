@@ -10,7 +10,7 @@
         <!-- spring版本号 -->
         <spring.version>3.2.4.RELEASE</spring.version>
         <!-- log4j日志文件管理包版本 -->
-        <slf4j.version>1.6.6</slf4j.version>
+        <slf4j.version>1.8.0-alpha1</slf4j.version>
         <log4j.version>1.2.12</log4j.version>
         <!-- junit版本号 -->
         <junit.version>4.10</junit.version>
@@ -27,6 +27,22 @@
             <version>3.1.2.2</version>
             <scope>test</scope>
         </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+
         <!-- 添加Spring依赖 -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -84,7 +100,7 @@
             <version>${spring.version}</version>
         </dependency>
 
-        <!--单元测试依赖 -->
+        <!-- 单元测试依赖 -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -119,9 +135,9 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
-        <!-- log end -->
+         log end
 
-        <!--mybatis依赖 -->
+        <!-- mybatis依赖 -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
@@ -206,23 +222,8 @@
             <artifactId>commons-codec</artifactId>
             <version>1.9</version>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.1.41</version>
-        </dependency>
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20131018</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sf.json-lib</groupId>
-            <artifactId>json-lib</artifactId>
-            <version>2.4</version>
-            <classifier>jdk15</classifier>
-        </dependency>
-        <!--JSON WEB TOKEN -->
+
+        <!-- JSON WEB TOKEN -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
@@ -234,7 +235,7 @@
             <version>2.2.0</version>
         </dependency>
 
-        <!--shiro相关-->
+        <!-- shiro相关 -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-core</artifactId>
@@ -255,8 +256,6 @@
             <artifactId>shiro-quartz</artifactId>
             <version>${shiro.version}</version>
         </dependency>
-
-
     </dependencies>
     <build>
         <plugins>
