@@ -7,11 +7,4 @@ public class FileService{
         String path = PropertiesUtil.getString("defaultPath");
         return path;
     }
-
-
-    public String getDir(String path) {
-
-        return "";
-    }
-
 }

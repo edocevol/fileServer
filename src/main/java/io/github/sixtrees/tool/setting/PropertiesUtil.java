@@ -32,7 +32,13 @@ public class PropertiesUtil {
     public static String getString(String itemIndex) {
 
         try {
-            return resource.getString(itemIndex);
+            String os = System.getProperty("os.name");
+            if(os.toLowerCase().startsWith("win")){
+                return resource.getString(itemIndex+"Windows");
+            }else{
+                return resource.getString(itemIndex+"Linux");
+            }
+
         } catch (Exception e) {
             return "";
         }
@@ -40,7 +46,6 @@ public class PropertiesUtil {
 
     public static void main(String[] args) {
         System.out.println(getString("defaultPath"));
-
     }
 
 }

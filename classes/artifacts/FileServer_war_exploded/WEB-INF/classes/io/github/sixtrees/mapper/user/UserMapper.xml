@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="io.github.sixtrees.mapper.user.UserMapper">
+    <!--
+
+        &lt;!&ndash; 根据用户ID和密码查询USER表信息 &ndash;&gt;
+        <select id="selectUserByQuery" resultType="io.github.sixtrees.po.user.User"
+                parameterType="io.github.sixtrees.po.user.LoginUser">
+            select * from user
+            <where>
+                <if test="userName!=null">
+                    userName = #{userName}
+                </if>
+                <if test="password!=null">
+                    and password = #{password}
+                </if>
+            </where>
+        </select>
+
+
+        &lt;!&ndash; 删除用户 &ndash;&gt;
+        <delete id="deleteUser" parameterType="int">
+            delete from UserInfo
+                where userID=#{userID}
+        </delete>
+
+        &lt;!&ndash; 修改密码 &ndash;&gt;
+        <update id="updatePwd" parameterType="io.github.sixtrees.po.user.LoginUser">
+            update user
+            <set>
+                <if test="password != null">
+                    password = #{password},
+                </if>
+            </set>
+            <where>
+                userID = #{userID}
+            </where>
+        </update>-->
+
+
+    <!--根据主键查询USER表信息-->
+    <select id="selectUserInfoById" resultType="io.github.sixtrees.po.user.User"
+            parameterType="java.lang.Integer">
+        select * from fs_user
+        <where>
+            id = #{id}
+        </where>
+    </select>
+
+    <!--添加用户-->
+    <insert id="addUser" parameterType="io.github.sixtrees.po.user.User" useGeneratedKeys="true" keyProperty="id">
+        insert into fs_user
+        (user_name,password,nick_name,create_time,last_login_time,last_login_ip,user_email,password_question,password_answer,root_path)
+        values (
+        #{userName},#{password},
+        #{nickName},#{createTime},
+        #{lastLoginTime},#{lastLoginIp},
+        #{userEmail},#{passwordQuestion},
+        #{passwordAnswer},#{rootPath}
+        )
+    </insert>
+
+    <!--根据用户名和密码查询用户的信息，注意这里用户名和密码不会出现多个记录一样的情况-->
+    <select id="selectUserByQuery" resultType="io.github.sixtrees.po.user.User"
+            parameterType="io.github.sixtrees.po.user.LoginUser">
+        select * from fs_user
+        <where>
+            <if test="userName!=null">
+                user_name = #{userName}
+            </if>
+            <if test="password!=null">
+                and password = #{password}
+            </if>
+        </where>
+    </select>
+
+</mapper>

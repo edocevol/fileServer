@@ -5,13 +5,13 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="renderer" content="webkit">
-	<title>宝塔Linux面板</title>
+	<title>文件管理</title>
 	<link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon" />
 	<link href="../static/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet">
-	<link href="../static/css/reset.css?4.4.1&v=1.3" rel="stylesheet">
-	<link href="../static/css/site.css?4.4.1&v=1.3" rel="stylesheet">
-	<link href="../static/css/file.css?4.4.1&v=1.3" rel="stylesheet">
-	<link href="../static/css/lib.css?4.4.1&v=1.3" rel="stylesheet">
+	<link href="../static/css/reset.css" rel="stylesheet">
+	<link href="../static/css/site.css" rel="stylesheet">
+	<link href="../static/css/file.css" rel="stylesheet">
+	<link href="../static/css/lib.css" rel="stylesheet">
 	<link href="../static/codemirror/lib/codemirror.css" rel="stylesheet">
 	<link href="../static/codemirror/addon/hint/show-hint.css" rel="stylesheet">
 	<link href="../static/codemirror/addon/dialog/dialog.css" rel="stylesheet">
@@ -30,19 +30,13 @@
 				<ul class="menu">
 					<li id="memuA"> <a class="menu_home" href="../">首页</a></li>
 					<li id="memuAsite"><a class="menu_web" href="../site">网站</a></li>
-					<li id="memuAftp"><a class="menu_ftp" href="../ftp">FTP</a></li>
-					<li id="memuAdatabase"><a class="menu_data" href="../database">数据库</a></li>
-					<li id="memuAcontrol"><a class="menu_control" href="../control">监控</a></li>
-					<li id="memuAfirewall"><a class="menu_firewall" href="../firewall">安全</a></li>
 					<li id="memuAfiles"><a class="menu_folder" href="../files">文件</a></li>
 					<li id="memuAcrontab"><a class="menu_day" href="../crontab">计划任务</a></li>
-					<li id="memuAsoft"><a class="menu_soft" href="../soft">软件管理</a></li>
-					<li id="memuAconfig"><a class="menu_set" href="../config">面板设置</a></li>
 					<li><a class="menu_exit" href="javascript:;" id="dologin">退出</a></li>
 				</ul>
 			</div>
 		</div>
-		<a style="display: none;" id="defaultPath">/www/wwwroot</a>
+		<a style="display: none;" id="defaultPath">/</a>
 		<script src="../static/js/jquery-1.10.2.min.js"></script>
 		<script src="../static/js/bootstrap.min.js"></script>
 		<script src="../static/layer/layer.js"></script>
@@ -97,10 +91,10 @@
 	</ul>
 	<script src="../static/js/jquery-ui.min.js"></script>
 	<script src="../static/js/jquery.contextify.min.js"></script>
-	<script src="../static/js/files.js?1.1"></script>
+	<script src="../static/js/files.js"></script>
 	<script src="../static/js/upload.js?1.2"></script>
 
-	<div class="footer bgw">宝塔Linux面板  ©2014-2017 宝塔(bt.cn)<a style="margin-left:20px;color:#20a53a;" href="http://www.bt.cn/bbs" target="_blank">问题求助|产品建议请上宝塔论坛</a></div></div>
+	<div class="footer bgw">轻量级文件共享服务器  ©2017-2017 <a style="margin-left:20px;color:#20a53a;" href="http://github.com/sixtrees/fileServer" target="_blank">github</a></div></div>
 </div>
 </div>
 </body>
